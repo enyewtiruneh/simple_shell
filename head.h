@@ -45,9 +45,9 @@ extern char **environ;
  */
 typedef struct str_detail
 {
-        int num;
-        char *str;
-        struct str_detail *next;
+	int num;
+	char *str;
+	struct str_detail *next;
 } sh_list;
 
 /**
@@ -74,31 +74,29 @@ typedef struct str_detail
  */
 typedef struct argpass
 {
-        char *arg;
-        char **argv;
-        char *path;
-        int argc;
-        unsigned int line_count;
-        int err_num;
-        int linecount_flag;
-        char *fname;
-        sh_list *env;
-        sh_list *history;
-        sh_list *alias;
-        char **environ;
-        int env_changed;
-        int status;
-
-        char **cmd_buf; /* pointer to cmd ; chain buffer, for memory mangement */
-        int cmd_buf_type; /* CMD_type ||, &&, ; */
-        int readfd;
-        int histcount;
+	char *arg;
+	char **argv;
+	char *path;
+	int argc;
+	unsigned int line_count;
+	int err_num;
+	int linecount_flag;
+	char *fname;
+	sh_list *env;
+	sh_list *history;
+	sh_list *alias;
+	char **environ;
+	int env_changed;
+	int status;
+	char **cmd_buf; /* pointer to cmd ; chain buffer, for memory mangement */
+	int cmd_buf_type; /* CMD_type ||, &&, ; */
+	int readfd;
+	int histcount;
 } info_t;
-
 
 #define INIT_DATA \
 {NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
-                0, 0, 0}
+		0, 0, 0}
 
 /**
  * struct blt_function - implements a builtin string
@@ -107,8 +105,8 @@ typedef struct argpass
  */
 typedef struct blt_function
 {
-        char *type;
-        int (*func)(info_t *);
+	char *type;
+	int (*func)(info_t *);
 } builtin_table;
 
 

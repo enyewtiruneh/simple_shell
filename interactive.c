@@ -8,10 +8,10 @@
 
 int ck_alphabt(int cr)
 {
-        if ((cr >= 'A' && cr <= 'Z') || (cr >= 'a' && cr <= 'z'))
-                return (1);
-        else
-                return (0);
+	if ((cr >= 'A' && cr <= 'Z') || (cr >= 'a' && cr <= 'z'))
+		return (1);
+	else
+		return (0);
 }
 
 /**
@@ -22,30 +22,28 @@ int ck_alphabt(int cr)
 
 int converter(char *str)
 {
-        unsigned int output = 0;
-        int j, display, signal = 1, flag = 0;
+	unsigned int output = 0;
+	int j, display, signal = 1, flag = 0;
 
-        for (j = 0; str[j] != '\0' && flag != 2; j++)
-        {
-                if (str[j] == '-')
-                        signal *= -1;
+	for (j = 0; str[j] != '\0' && flag != 2; j++)
+	{
+		if (str[j] == '-')
+			signal *= -1;
 
-                if (str[j] >= '0' && str[j] <= '9')
-                {
-                        flag = 1;
-                        output *= 10;
-                        output += (str[j] - '0');
-                }
-                else if (flag == 1)
-                        flag = 2;
-        }
-
-        if (signal == -1)
-                display = -output;
-        else
-                display = output;
-
-        return (display);
+		if (str[j] >= '0' && str[j] <= '9')
+		{
+			flag = 1;
+			output *= 10;
+			output += (str[j] - '0');
+		}
+		else if (flag == 1)
+			flag = 2;
+	}
+	if (signal == -1)
+		display = -output;
+	else
+		display = output;
+	return (display);
 }
 
 
@@ -57,7 +55,7 @@ int converter(char *str)
  */
 int interface(info_t *info)
 {
-        return (isatty(STDIN_FILENO) && info->readfd <= 3);
+	return (isatty(STDIN_FILENO) && info->readfd <= 3);
 }
 
 /**
@@ -68,9 +66,9 @@ int interface(info_t *info)
  */
 int ck_delim(char cr, char *delim)
 {
-        while (*delim)
-                if (*delim++ == cr)
-                        return (1);
-        return (0);
+	while (*delim)
+		if (*delim++ == cr)
+			return (1);
+	return (0);
 }
 
